@@ -89,6 +89,68 @@ namespace QUEUES_STACKs
                 Console.WriteLine(item);
             }
 
+
+            //example of non-generic stack
+            Stack sk = new Stack();
+            bool aBoolean = true;
+            char a = '$';
+            int anInterger = 1205;
+            string aString = "Li Xu";
+
+            //adding at the top 堆叠, boolean在最下面,其次是$, 1205, Li Xu在最上面
+            sk.Push(aBoolean);
+            PrintStack(sk);
+            sk.Push(a);
+            sk.Push(anInterger);
+            sk.Push(aString);
+
+            Console.WriteLine("The top element of the stack, i.e., the element that last is {0}\n", sk.Peek());
+            PrintStack(sk);
+
+            Console.ReadKey();
+            Console.WriteLine();
+            //Generic stack
+            var getStack = GetStack();
+            foreach (var item in getStack)
+            {
+                Console.WriteLine(item);
+            }
+            int pop = getStack.Pop();
+            Console.WriteLine();
+            Console.WriteLine("The element popped from the stack is {0}\n",pop);
+            Console.WriteLine("The stack now is: ");
+            foreach (var j in getStack)
+            {
+                Console.WriteLine(j);
+            }
+            Console.ReadKey();
+           
+        }
+
+        private static void PrintStack(Stack stack)
+        {
+            if (stack.Count==0)
+            {
+                Console.WriteLine("The stack is empty");
+            }
+            else
+            {
+                Console.Write("The stack is:");
+                foreach (var item in stack)
+                {
+                    Console.Write("{0} \n", item);
+                }
+            }
+        }
+
+        //Generic stack
+        static Stack<int> GetStack()
+        {
+            Stack<int> stack = new Stack<int>();
+            stack.Push(100);
+            stack.Push(1000);
+            stack.Push(10000);
+            return stack;
         }
     }
 }
