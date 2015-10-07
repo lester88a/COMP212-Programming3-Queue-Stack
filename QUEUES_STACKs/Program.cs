@@ -63,7 +63,31 @@ namespace QUEUES_STACKs
             //stack.Push("li xu"); >will not work
 
 
+            //LinkedList
+            //adding a node in between
+            //[1] > [2] >[n]> [3] > [4]
+            //delete a node in anywhere in between
+            //[1] > [2] >{[3] >} [4]
+
+            //AddLast&AddFirst
+            LinkedList<string> linked = new LinkedList<string>();
+            linked.AddLast("Cat");
+            linked.AddLast("Dog");
+            linked.AddLast("Man"); // cat > dog > man
+            linked.AddFirst("Bird"); //bird > cat > dog > man
+
+           
             
+            //AddAfter&AddBefore
+            //AddAfter(NodeObeject, InsertedObject)
+            LinkedListNode<string> node = linked.Find("Cat");
+            linked.AddAfter(node,"Monkey"); //bird>cat>monkey>dog>man
+             
+
+            foreach (var item in linked)
+            {
+                Console.WriteLine(item);
+            }
 
         }
     }
